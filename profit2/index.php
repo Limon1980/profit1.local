@@ -1,3 +1,5 @@
 <?php
 
-echo 'Как же блять все не просто';
+require __DIR__. '/autoload.php';
+
+$db = new \App\Db();
