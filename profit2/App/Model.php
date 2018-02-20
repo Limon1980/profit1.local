@@ -10,7 +10,7 @@ abstract class Model
 
     public static function findAll()
     {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
             static::class
@@ -19,7 +19,7 @@ abstract class Model
 
     public static function findNum($num)
     {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE .' LIMIT '.$num,
             static::class
@@ -27,9 +27,9 @@ abstract class Model
     }
 
 
-    public static function findById($id)
+    public static function findById(int $id)
     {
-        $db = new Db();
+        $db = Db::instance();
         $res = $db->query(
         'SELECT * FROM ' . static::TABLE.' WHERE id=:id ',
         static::class, [':id' => $id]

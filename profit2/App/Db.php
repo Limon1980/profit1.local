@@ -3,10 +3,11 @@
 namespace App;
 
 class Db
+    extends Singleton
 {
     protected $dbh;
 
-    public function __construct()
+    protected function __construct()
     {
         $this->dbh = new \PDO('mysql:host=localhost; dbname=test', 'taras', 'TRargo.12');
     }
