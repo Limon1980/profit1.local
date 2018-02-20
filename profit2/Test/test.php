@@ -8,5 +8,8 @@ $users = \App\Models\User::findAll();
 
 $us = new \App\Db;
 
-var_dump($us->execute('SELECT * FROM users WHERE id=:id', [':id' => 1]));
-var_dump($us->query('SELECT * FROM users WHERE id=:id', '\App\Models\User', [':id' => 1]));
+var_dump($us->execute('SELECT * FROM users WHERE id=:id', [':id' => 2]));
+var_dump($us->query('SELECT * FROM users WHERE name=:a', '\App\Models\User', [':a' => 'Вася Пупкин']));
+
+echo '<br>';
+var_dump(\App\Models\User::findById('3'));
