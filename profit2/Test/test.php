@@ -13,3 +13,6 @@ var_dump($us->query('SELECT * FROM users WHERE name=:a', '\App\Models\User', [':
 
 echo '<br>';
 var_dump(\App\Models\User::findById('3'));
+
+$news = \App\Models\News::findAll();
+var_dump($news);
