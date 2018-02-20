@@ -17,6 +17,16 @@ abstract class Model
         );
     }
 
+    public static function findNum($num)
+    {
+        $db = new Db();
+        return $db->query(
+            'SELECT * FROM ' . static::TABLE .' LIMIT '.$num,
+            static::class
+        );
+    }
+
+
     public static function findById($id)
     {
         $db = new Db();
