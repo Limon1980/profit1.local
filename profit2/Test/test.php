@@ -5,12 +5,12 @@ require __DIR__. '/../autoload.php';
 //use App\Model; // тайп Хинтинг родительский класс
 use App\Models\User; //тайп Хинтинг класс
 //use App\Models\HasEmail; можно тайп Хинтинг интерфейсы
-$s = \App\Singleton::instance();
-$s->counter = 1;
-var_dump($s);
-
-$s = \App\Singleton::instance();
-var_dump($s);
+                //$s = \App\Singleton::instance();
+                //$s->counter = 1;
+                //var_dump($s);
+                //
+                //$s = \App\Singleton::instance();
+                //var_dump($s);
 $users = \App\Models\User::findAll();
 
 //var_dump($users);
