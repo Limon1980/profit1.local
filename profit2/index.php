@@ -18,7 +18,10 @@ $news = \App\Models\News::findNum('3');
 //
 //
 //
-include __DIR__. '/templates/index.php';
+$view = new \App\View();
+$view->assign('index.php', $news);
+$view->display('index.php');
+//include __DIR__. '/templates/index.php';
 
 
 //$user = new \App\Models\User();

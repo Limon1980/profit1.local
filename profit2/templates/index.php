@@ -13,7 +13,7 @@
 <body>
 <h1>Новости</h1>
 <hr>
-<?php foreach ($news as $key) : ?>
+<?php foreach ($value as $key) : ?>
     <article>
         <a href="article.php?id=<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
         <div><?php echo $key->author; ?></div>
