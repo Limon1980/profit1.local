@@ -5,5 +5,5 @@ require __DIR__. '/../autoload.php';
 
 $config = App\Config::instance();
 
-var_dump($config);
+var_dump($config->data);
 
