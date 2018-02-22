@@ -15,7 +15,7 @@
 <hr>
 <?php foreach ($value as $key) : ?>
     <article>
-        <a href="/../profit2/App/controllers/article.php?id=<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
+        <a href="article.php?id=<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
         <div><?php echo $key->author; ?></div>
     </article>
 <?php endforeach; ?>
