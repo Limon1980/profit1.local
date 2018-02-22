@@ -15,7 +15,7 @@
 <body>
 
 
-<?php foreach ($article as $key) : ?>
+<?php foreach ($value as $key) : ?>
 
 <h1> <?= $key->title; ?></h1>
 <p><?= $key->text; ?></p>

@@ -1,10 +1,12 @@
 <?php
 
-require __DIR__. '/autoload.php';
+//require __DIR__. '/autoload.php';
+// $_SERVER['QUERY_STRING'];
+$url = $_SERVER['REQUEST_URI'] ;
 
-$url = $_SERVER['REQUEST_URI'];
-
+$url = str_replace('/profit2/','', $url);
 //echo $url;
+ include __DIR__.'/App/controllers/'.$url;
 
 //$users = \App\Models\User::findAll();
 //
@@ -14,13 +16,13 @@ $url = $_SERVER['REQUEST_URI'];
 //
 //var_dump($us->execute('SELECT * FROM user'));
 
-$news = \App\Models\News::findNum('3');
+//$news = \App\Models\News::findNum('3');
 //
 //
 //
-$view = new \App\View();
-$view->assign('index.php', $news);
-$view->display('index.php');
+//$view = new \App\View();
+//$view->assign('index.php', $news);
+//$view->display('index.php');
 //include __DIR__. '/templates/index.php';
 
 
