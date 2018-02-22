@@ -26,10 +26,10 @@ class View
 
     public function display($template)
     {
-        //echo $this->render($template);
+        echo $this->render($template);
         //$model = $this;
-        $value = $this->data[$template];
-        include __DIR__ . '/../templates/' . $template;
+//        $value = $this->data[$template];
+//        include __DIR__ . '/../templates/' . $template;
     }
 
     public function render($template)
