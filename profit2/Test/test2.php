@@ -10,16 +10,16 @@ $config = App\Config::instance();
 //var_dump($config->data);
 
 
-//$user = new \App\Models\User();
-//$user->name = 'Vasya';
-//$user->email = 'v@mail.ru';
-//var_dump($user->insert());
+$user = new \App\Models\User();
+$user->name = 'Andre';
+$user->email = 'andre@mail.ru';
+$user->insert();
 
-$news = new \App\Models\News();
+//$news = new \App\Models\News();
 
 //$news->text = 'Vasya';
 //$news->title = 'v@mail.ru';
 //$news->author = 'Тарас';
 //$news->update(6, ['text' => 'Проверка5', 'title' => '5555Вот такой вот титле']);
 $user = new \App\Models\User();
-$user->update(2, ['name' => 'Петро', 'email' => 'petro@mail.ru']);
+var_dump($user->update(5, ['name' => 'Петро', 'email' => 'petro@mail.ru']));
