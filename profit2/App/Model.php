@@ -19,6 +19,16 @@ abstract class Model
         );
     }
 
+    public static function findId()
+    {
+        $db = Db::instance();
+        $res = $db->query(
+            'SELECT id FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT 1',
+            static::class
+        );
+        return $res[0]->id;
+    }
+
     public static function findNum($num)
     {
         $db = Db::instance();
@@ -51,6 +61,7 @@ abstract class Model
         }
         $columns = [];
         $values = [];
+
         foreach ($this as $k => $v){
             if ('id' == $k){
                 continue;
@@ -67,6 +78,8 @@ abstract class Model
         ';
          $db = Db::instance();
          $db->execute($sql, $values);
+         $this->id = static::findId();
+         return $this->id;
     }
 
 }
