@@ -16,8 +16,10 @@ $config = App\Config::instance();
 //var_dump($user->insert());
 
 $news = new \App\Models\News();
-$news->text = 'Vasya';
-$news->title = 'v@mail.ru';
-$news->author = 'Тарас';
-var_dump($news->insert());
 
+//$news->text = 'Vasya';
+//$news->title = 'v@mail.ru';
+//$news->author = 'Тарас';
+//$news->update(6, ['text' => 'Проверка5', 'title' => '5555Вот такой вот титле']);
+$user = new \App\Models\User();
+$user->update(2, ['name' => 'Петро', 'email' => 'petro@mail.ru']);

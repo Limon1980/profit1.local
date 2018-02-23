@@ -9,6 +9,7 @@ abstract class Model
     const TABLE = '';
 
     public $id;
+    public $values;
 
     public static function findAll()
     {
@@ -80,6 +81,44 @@ abstract class Model
          $db->execute($sql, $values);
          $this->id = static::findId();
          return $this->id;
+    }
+
+
+    public static function update($id, $values = [])
+    {
+        $res =  static::findById($id);
+        $res = (array) $res[0];
+        //var_dump($res);
+        if ($res)
+        {
+
+            $val = [];
+
+            foreach ($res as $k => $v){
+                if (isset($values [$k])) {
+                    $valset[$k . '=:' . $k] = '';
+                }
+            }
+
+
+            foreach ($values as $k => $v)
+            {
+                $val[':'.$k] = $v;
+            }
+
+           // var_dump($val);
+
+
+            $sql = 'UPDATE '. static::TABLE . ' SET
+         
+        ' . implode(',', array_keys($valset)) .' 
+         WHERE id = '. $id;
+
+         //var_dump($sql);
+            $db = Db::instance();
+            $db->execute($sql, $val);
+
+        }else {return false;}
     }
 
 }
