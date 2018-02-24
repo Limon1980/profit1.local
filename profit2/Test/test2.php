@@ -23,4 +23,4 @@ $config = App\Config::instance();
 //$news->update(6, ['text' => 'Проверка5', 'title' => '5555Вот такой вот титле']);
 $user = new \App\Models\User();
 //var_dump($user->update(7, ['name' => 'Петро', 'email' => 'petro@mail.ru']));
-var_dump($user->deleteById(10));
+var_dump(\App\Models\News::findNum(10));

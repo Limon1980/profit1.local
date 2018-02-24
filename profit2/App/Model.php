@@ -8,7 +8,7 @@ abstract class Model
 {
     const TABLE = '';
 
-    protected $id;
+    public $id;
 
     public static function findAll()
     {
