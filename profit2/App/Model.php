@@ -8,7 +8,7 @@ abstract class Model
 {
     const TABLE = '';
 
-    public $id;
+    protected $id;
 
     public static function findAll()
     {
@@ -49,76 +49,92 @@ abstract class Model
         if($res){return $res;}else{return false;}
     }
 
+    public static function deleteById(int $id)
+    {
+        $db = Db::instance();
+            $sql = 'DELETE FROM ' . static::TABLE.' WHERE id=:id ';
+            $param = [':id' => $id];
+
+            $db->query($sql, static::class, $param);
+
+
+    }
+
+
     public function isNew()
     {
         return empty($this->id);
     }
 
-    public function insert()
+    public function insert($values = [])
     {
         if(!$this->isNew()) {
             return;
         }
         $columns = [];
-        $values = [];
-
+        $val = [];
         foreach ($this as $k => $v){
             if ('id' == $k){
                 continue;
             }
             $columns[] = $k;
-            $values[':'.$k] = $v;
-        }
 
+            foreach ($values as $k2 => $v2)
+            {
+                if ($k == $k2) {
+                    $val[':' . $k2] = $v2;
+                }
+            }
+
+        }
 
         $sql = 'INSERT INTO '. static::TABLE . ' 
         (' . implode(',',$columns) . ') 
         VALUES 
-        (' . implode(',', array_keys($values)) .')
+        (' . implode(',', array_keys($val)) .')
         ';
-        var_dump($sql);
-        var_dump($values);
+        //var_dump($sql);
+        //var_dump($val);
          $db = Db::instance();
-         $db->execute($sql, $values);
+         $db->execute($sql, $val);
          $this->id = static::findId();
          return $this->id;
     }
 
 
-    public static function update($id, $values = [])
+    public  function update($id, $values = [])
     {
-        $res =  static::findById($id);
-        $res = (array) $res[0];
 
-        //var_dump($res);
-        if ($res)
-        {
+            if (static::findById($id)) {
+                $val = [];
 
-            $val = [];
+                foreach ($this as $k => $v) {
+                    if (isset($values [$k])) {
+                        $valset[$k . '=:' . $k] = '';
 
-            foreach ($res as $k => $v){
-                if (isset($values [$k])) {
-                    $valset[$k . '=:' . $k] = '';
+
+                    }
                 }
-            }
 
-            foreach ($values as $k => $v)
-            {
-                $val[':'.$k] = $v;
-            }
-           // var_dump($val);
+                foreach ($values as $k => $v) {
+                    $val[':' . $k] = $v;
+                }
+                var_dump($val);
 
-            $sql = 'UPDATE '. static::TABLE . ' SET
+                $sql = 'UPDATE ' . static::TABLE . ' SET
          
-        ' . implode(',', array_keys($valset)) .' 
-         WHERE id = '. $id;
+        ' . implode(',', array_keys($valset)) . ' 
+         WHERE id = ' . $id;
 
-         //var_dump($sql);
-            $db = Db::instance();
-            $db->execute($sql, $val);
-            return $id;
+                var_dump($sql);
+                $db = Db::instance();
+                $db->execute($sql, $val);
+                return $id;
+            }else {return false;}
 
-        }else {return false;}
     }
+
+
+
 
 }

@@ -2,6 +2,10 @@
 
 require __DIR__. '/autoload.php';
 
-$article = \App\Models\News::findById($_GET['id']);
+if (isset($_GET['id'])) {
+    $article = \App\Models\News::findById($_GET['id']);
 
-include __DIR__. '/templates/article.php';
+    $view = new \App\View();
+    $view->assign('article.php', $article);
+    $view->display('article.php');
+}

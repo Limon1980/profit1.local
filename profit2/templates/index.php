@@ -7,10 +7,24 @@
             border:1px dotted red;
             padding:5px;
         }
+        .menu a {
+            font-size: 24px;
+            padding: 10px;
+        }
     </style>
     <title>Учебная страница новостей</title>
 </head>
 <body>
+<div class="menu">
+    <a href="index.php"> Главная </a>
+    <a href="article.php"> Новая статья </a>
+<!--    <a href="news.php"> Новости </a>-->
+<!--    <a href="newsdb.php"> Новости БД </a>-->
+<!--    <a href="gbook.php"> Гостевая книга </a>-->
+
+
+</div>
+
 <h1>Новости</h1>
 <hr>
 <?php foreach ($value as $key) : ?>
