@@ -14,7 +14,7 @@ $url = $_SERVER['REQUEST_URI'];
 //
 //var_dump($us->execute('SELECT * FROM user'));
 
-$news = \App\Models\News::findNum('3');
+$news = \App\Models\News::findNum('5');
 //
 //
 //

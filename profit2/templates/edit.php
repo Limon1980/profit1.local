@@ -7,17 +7,13 @@
             border:1px dotted red;
             padding:5px;
         }
-        .menu a {
-            font-size: 24px;
-            padding: 10px;
-        }
     </style>
-    <title>Статья <?php echo $value[0]->id?></title>
+    <title>Учебная  статья</title>
 </head>
 <body>
 <div class="menu">
     <a href="index.php"> Главная </a>
-<!--    <a href="article.php"> Новая статья </a>-->
+    <!--    <a href="article.php"> Новая статья </a>-->
     <!--    <a href="news.php"> Новости </a>-->
     <!--    <a href="newsdb.php"> Новости БД </a>-->
     <!--    <a href="gbook.php"> Гостевая книга </a>-->
@@ -29,12 +25,10 @@
 
 <?php foreach ($value as $key) : ?>
 
-<h1> <?= $key->title; ?></h1>
-<p><?= $key->text; ?></p>
-<li><?= $key->author;?></li>
-<a href="article.php?edit=<?= $key->id;?>">Редактировать</a>
-<a href="article.php?delete=<?= $key->id;?>">Удалить</a>
-
+    <h1> <?= $key->title; ?></h1>
+    <p><?= $key->text; ?></p>
+    <a href="article.php?edit=<?= $key->id;?>">Редактировать</a>
+    <li><?= $key->author;?></li>
 <?php endforeach; ?>
 
 
