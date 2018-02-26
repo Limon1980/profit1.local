@@ -2,13 +2,16 @@
 
 require __DIR__. '/autoload.php';
 
+$users = \App\Models\User::findAll();
+
 include __DIR__.'/template/index.php';
+
 
 //$url = $_SERVER['REQUEST_URI'];
 
 //echo $url;
 
-//$users = \App\Models\User::findAll();
+
 //
 //var_dump($users);
 //
