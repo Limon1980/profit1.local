@@ -32,8 +32,8 @@
 <h1> <?= $key->title; ?></h1>
 <p><?= $key->text; ?></p>
 <li><?= $key->author;?></li>
-<a href="article.php?edit=<?= $key->id;?>">Редактировать</a>
-<a href="article.php?delete=<?= $key->id;?>">Удалить</a>
+<a href="edit.php?edit=<?= $key->id;?>">Редактировать</a>
+<a href="edit.php?delete=<?= $key->id;?>">Удалить</a>
 
 <?php endforeach; ?>
 

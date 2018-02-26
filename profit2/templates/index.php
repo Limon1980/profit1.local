@@ -17,7 +17,7 @@
 <body>
 <div class="menu">
     <a href="index.php"> Главная </a>
-    <a href="article.php?new=new"> Новая статья </a>
+    <a href="edit.php?new=new"> Новая статья </a>
 <!--    <a href="news.php"> Новости </a>-->
 <!--    <a href="newsdb.php"> Новости БД </a>-->
 <!--    <a href="gbook.php"> Гостевая книга </a>-->

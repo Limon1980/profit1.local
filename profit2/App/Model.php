@@ -119,14 +119,14 @@ abstract class Model
                 foreach ($values as $k => $v) {
                     $val[':' . $k] = $v;
                 }
-                var_dump($val);
+                //var_dump($val);
 
                 $sql = 'UPDATE ' . static::TABLE . ' SET
          
         ' . implode(',', array_keys($valset)) . ' 
          WHERE id = ' . $id;
 
-                var_dump($sql);
+                //var_dump($sql);
                 $db = Db::instance();
                 $db->execute($sql, $val);
                 return $id;

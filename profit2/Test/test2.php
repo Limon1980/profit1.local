@@ -21,6 +21,14 @@ $config = App\Config::instance();
 //$news->title = 'v@mail.ru';
 //$news->author = 'Тарас';
 //$news->update(6, ['text' => 'Проверка5', 'title' => '5555Вот такой вот титле']);
-$user = new \App\Models\User();
+//$user = new \App\Models\User();
 //var_dump($user->update(7, ['name' => 'Петро', 'email' => 'petro@mail.ru']));
-var_dump(\App\Models\News::findNum(10));
+//var_dump(\App\Models\News::findNum(10));
+?>
+<html>
+<form>
+    <input type="text" name="id" placeholder="ID" value="" required  ><br>
+ <input type="reset" value="Очистить">
+</form>
+
+</html>
