@@ -2,7 +2,9 @@
 
 require __DIR__. '/autoload.php';
 
-$url = $_SERVER['REQUEST_URI'];
+include __DIR__.'/template/index.php';
+
+//$url = $_SERVER['REQUEST_URI'];
 
 //echo $url;
 
@@ -14,13 +16,11 @@ $url = $_SERVER['REQUEST_URI'];
 //
 //var_dump($us->execute('SELECT * FROM user'));
 
-$news = \App\Models\News::findNum('5');
-//
-//
-//
-$view = new \App\View();
-$view->assign('index.php', $news);
-$view->display('index.php');
+//$news = \App\Models\News::findNum('5');
+//$view = new \App\View();
+//$view->assign('index.php', $news);
+//$view->display('index.php');
+
 //include __DIR__. '/templates/index.php';
 
 
