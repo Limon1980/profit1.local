@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title><?php echo $this->title; ?></title>
 </head>
 <body>
-<h1>Hello, world!</h1>
+<h1>Пользователи</h1>
 
-<?php foreach ($users as $user) : ?>
+<?php foreach ($this->users as $user) : ?>
 
     <div class="panel panel-default">
         <div class="panel-heading">

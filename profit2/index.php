@@ -2,9 +2,17 @@
 
 require __DIR__. '/autoload.php';
 
-$users = \App\Models\User::findAll();
+//$users = \App\Models\User::findAll();
+//
+//include __DIR__.'/template/index.php';
 
-include __DIR__.'/template/index.php';
+$view = new \App\View();
+
+//$view->title = 'Мой крутой сайт!';
+$view->users = \App\Models\User::findAll();
+$view->title = 'Мой крутой сайт';
+$view->display(__DIR__ . '/template/index.php');
+
 
 
 //$url = $_SERVER['REQUEST_URI'];
