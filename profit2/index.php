@@ -11,6 +11,7 @@ $view = new \App\View();
 //$view->title = 'Мой крутой сайт!';
 $view->users = \App\Models\User::findAll();
 $view->title = 'Мой крутой сайт';
+
 $view->display(__DIR__ . '/template/index.php');
 
 
