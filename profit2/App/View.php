@@ -49,7 +49,10 @@ class View
 //    }
 
 
-
+    /**
+    * Trait TraitMagic
+     */
+     
     use \App\TraitMagic;
 
     public function render($template)

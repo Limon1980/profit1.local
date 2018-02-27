@@ -7,11 +7,8 @@ require __DIR__. '/autoload.php';
 //include __DIR__.'/template/index.php';
 
 $view = new \App\View();
-
-//$view->title = 'Мой крутой сайт!';
-$view->users = \App\Models\User::findAll();
-$view->title = 'Мой крутой сайт';
-
+$view->title = 'Новости';
+$view->news = \App\Models\News::findNum('5');
 $view->display(__DIR__ . '/template/index.php');
 
 
