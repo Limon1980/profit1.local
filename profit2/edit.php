@@ -11,10 +11,9 @@ if (isset($_GET['new'])) {
     $news = new \App\Models\News();
     $view = new \App\View();
     $author = new \App\Models\Author();
-    $author_id = $author->insert(['name' => '', 'surname' => '']);
-    $id = $news->insert(['title' => '', 'text' => '', 'author_id' => $author_id ]);
 
-    $view->news = \App\Models\News::findById($id);
+    $view->news = $news;
+    $view->news->author = $author;
 
     $view->display(__DIR__ . '/template/edit.php');
 
@@ -41,16 +40,30 @@ if (isset($_GET['new'])) {
 
 }
 
-elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name']) and isset($_POST['id'])){
+elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name']) and isset($_POST['surname'])){
     $view = new \App\View();
     $news = new \App\Models\News();
-    $author_id = \App\Models\News::findById($_POST['id'])->author_id;
     $author = new \App\Models\Author();
 
-    $author->update($author_id, ['name' => $_POST['name'], 'surname' => $_POST['surname']]);
-    $news->update($_POST['id'], ['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
 
-    $view->news = \App\Models\News::findById($_POST['id']);
+    if (!$_POST['id'])
+    {
+        $author->name = $_POST['name'];
+        $author->surname = $_POST['surname'];
+        $author_id = (\App\Models\Author::findAuthor($author))?: $author->insert(['name' => $_POST['name'], 'surname' => $_POST['surname']]);
+        $id = $news->insert(['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
+        $news->insert(['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
+
+    }elseif ($_POST['id']){
+        $id = $_POST['id'];
+        $news = (\App\Models\News::findById($_POST['id']));
+        $author_id = $news->author_id;
+        $news->update($_POST['id'], ['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
+        $author->update($author_id, ['name' => $_POST['name'], 'surname' => $_POST['surname']]);
+
+    }
+
+    $view->news = \App\Models\News::findById($id);
     $view->display(__DIR__ . '/template/edit.php');
 
 

@@ -4,6 +4,8 @@
 namespace App;
 
 
+use App\Models\Author;
+
 abstract class Model
 {
     const TABLE = '';
@@ -36,6 +38,19 @@ abstract class Model
             'SELECT * FROM ' . static::TABLE .' LIMIT '.$num,
             static::class
         );
+    }
+    /**
+    * @return author_id
+     */
+
+    public static function findAuthor(Author $author)
+    {
+        $db = Db::instance();
+        $author_id  = $db->query(
+            'SELECT id FROM ' . static::TABLE .' WHERE name=:name AND surname=:surname',
+            static::class, [':name' => $author->name, ':surname' => $author->surname]
+        );
+        if ($author_id){return $author_id[0]->id;}else{return false;}
     }
 
 

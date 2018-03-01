@@ -12,9 +12,12 @@ require __DIR__. '/../autoload.php';
 //var_dump($view->author = \App\Models\News::findById(1));
 
 $news = new \App\Models\News();
-
-$news = $news->findById(2);
-var_dump($news->author);
+$author = new \App\Models\Author();
+//$news = $news->findById(2);
+$author->name = 'Тарас';
+$author->surname = 'Калюжный';
+$author = \App\Models\Author::findAuthor($author);
+var_dump($author);
 
 die;
 $view->display(__DIR__ . '/template/index.php');

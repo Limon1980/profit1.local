@@ -21,7 +21,7 @@
 }else {$button = 'Изменить'; $input1 = '';}?>
 
 <form action="edit.php" method="post">
-    <input type="text" name="id" placeholder="ID" value="<?= $news->id; ?>"   ><br>
+    <input type="text" name="id" placeholder="ID" value="<?= $news->id; ?>"   hidden><br>
     <input type="text" name="title" placeholder="Заголовок" value="<?= $news->title; ?>"   ><br>
     <textarea class="Add" name="text" placeholder="Текст" ><?= $news->text; ?></textarea><br>
     <input type="text" name="name" placeholder="Имя" value="<?= $news->author->name; ?>"   ><br>
