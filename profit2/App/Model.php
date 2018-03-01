@@ -46,7 +46,8 @@ abstract class Model
         'SELECT * FROM ' . static::TABLE.' WHERE id=:id ',
         static::class, [':id' => $id]
         );
-        if($res){return $res;}else{return false;}
+        if($res){return $res[0];}else{return false;}
+
     }
 
     public static function deleteById(int $id)

@@ -3,7 +3,25 @@
 
 require __DIR__. '/../autoload.php';
 
-$config = App\Config::instance();
+//$config = App\Config::instance();
+
+//$author = new \App\Models\Author();
+//$author->name = 'Тарас';
+//$author->surname = 'Калюжный';
+//$view = new \App\View();
+//var_dump($view->author = \App\Models\News::findById(1));
+
+$news = new \App\Models\News();
+
+$news = $news->findById(2);
+var_dump($news->author);
+
+die;
+$view->display(__DIR__ . '/template/index.php');
+
+
+//var_dump($author);
+
 
 
 
@@ -25,10 +43,3 @@ $config = App\Config::instance();
 //var_dump($user->update(7, ['name' => 'Петро', 'email' => 'petro@mail.ru']));
 //var_dump(\App\Models\News::findNum(10));
 ?>
-<html>
-<form>
-    <input type="text" name="id" placeholder="ID" value="" required  ><br>
- <input type="reset" value="Очистить">
-</form>
-
-</html>

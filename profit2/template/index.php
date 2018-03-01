@@ -21,7 +21,7 @@
                     <a href="article.php?id=<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
                 </article>
         </div>
-        <div class="panel-body"><?php echo $key->author; ?></div>
+        <div class="panel-body"><?php echo $key->author->name; echo ' '. $key->author->surname ?></div>
     </div>
 
 <?php endforeach; ?>

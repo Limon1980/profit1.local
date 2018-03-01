@@ -20,7 +20,7 @@
             <h1> <?= $key->title; ?></h1>
 
         </div>
-        <div class="panel-body"><p><?= $key->text; ?></p><?php echo $key->author; ?></div>
+        <div class="panel-body"><p><?= $key->text; ?></p><li><?php echo $key->author; ?></li></div>
     </div>
 
     <a href="edit.php?edit=<?= $key->id;?>">Редактировать</a>
