@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <title><?php echo $news[0]->title; ?></title>
+    <title><?php echo $news->title; ?></title>
 </head>
 <body>
 <h1>Новости</h1>
 
-<?php foreach ($news as $key) : ?>
+
 
     <div class="panel panel-default">
         <div class="panel-heading">
 
-            <h1> <?= $key->title; ?></h1>
+            <h1> <?= $news->title; ?></h1>
 
         </div>
-        <div class="panel-body"><p><?= $key->text; ?></p><li><?php echo $key->author; ?></li></div>
+        <div class="panel-body"><p><?= $news->text; ?></p><li><?php echo $news->author->name; echo ' '. $news->author->surname?></li></div>
     </div>
 
-    <a href="edit.php?edit=<?= $key->id;?>">Редактировать</a>
-    <a href="edit.php?delete=<?= $key->id;?>">Удалить</a>
+    <a href="edit.php?edit=<?= $news->id;?>">Редактировать</a>
+    <a href="edit.php?delete=<?= $news->id;?>">Удалить</a>
 
-<?php endforeach; ?>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
