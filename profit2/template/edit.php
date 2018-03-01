@@ -15,18 +15,26 @@
 <h1>Новости</h1>
 
 
+<?php if(isset($_GET['new'])){
+    $button = 'Добавить';
+    $input1 = '<input class="button" type="submit" name="delete" value="Удалить">';
+}else {$button = 'Изменить'; $input1 = '';}?>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
+<form action="edit.php" method="post">
+    <input type="text" name="id" placeholder="ID" value="<?= $news->id; ?>"   ><br>
+    <input type="text" name="title" placeholder="Заголовок" value="<?= $news->title; ?>"   ><br>
+    <textarea class="Add" name="text" placeholder="Текст" ><?= $news->text; ?></textarea><br>
+    <input type="text" name="name" placeholder="Имя" value="<?= $news->author->name; ?>"   ><br>
+    <input type="text" name="surname" placeholder="Фамилия" value="<?= $news->author->surname; ?>"   ><br>
+    <br><input class="button" type="submit" name="enter" value="<?= $button?>"> <input class="button" type="reset" name="reset" value="Очистить">
+    <?= $input1;?>
+</form>
 
-            <h1> <?= $news->title; ?></h1>
 
-        </div>
-        <div class="panel-body"><p><?= $news->text; ?></p><li><?php echo $news->author->name; echo ' '. $news->author->surname?></li></div>
-    </div>
 
-    <a href="edit.php?edit=<?= $news->id;?>">Редактировать</a>
-    <a href="edit.php?delete=<?= $news->id;?>">Удалить</a>
+
+
+
 
 
 

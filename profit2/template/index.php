@@ -10,6 +10,8 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
+<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
+
 <h1>Новости</h1>
 
 <?php foreach ($news as $key) : ?>
