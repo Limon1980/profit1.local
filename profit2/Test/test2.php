@@ -14,10 +14,12 @@ require __DIR__. '/../autoload.php';
 $news = new \App\Models\News();
 $author = new \App\Models\Author();
 //$news = $news->findById(2);
-$author->name = 'Тарас';
-$author->surname = 'Калюжный';
-$author = \App\Models\Author::findAuthor($author);
-var_dump($author);
+$author->name = 'Ваня';
+$author->surname = 'Петро';
+$author->id = 19;
+//$author = \App\Models\Author::findAuthor($author);
+$id = $author->save();
+var_dump($id);
 
 die;
 $view->display(__DIR__ . '/template/index.php');

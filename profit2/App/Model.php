@@ -77,9 +77,26 @@ abstract class Model
     }
 
 
+
+    /**
+     * cheks if model is new
+     * @return bool
+     */
     public function isNew()
     {
         return empty($this->id);
+    }
+    /**
+     * save method
+     * @return bool
+     */
+    public function save()
+    {
+        if ($this->isNew()) {
+            return $this->insert2();
+        } else {
+            return $this->update2();
+        }
     }
 
     public function insert($values = [])
@@ -117,6 +134,31 @@ abstract class Model
          return $this->id;
     }
 
+    /**
+     * insert method
+     * @return bool
+     */
+    public function insert2()
+    {
+        $columns = [];
+        $values = [];
+        foreach ($this as $key => $val) {
+            if ($key === 'id') {
+                continue;
+            }
+            $columns[] = $key;
+            $values[':' . $key] = $val;
+        }
+        $sql = 'INSERT INTO ' . static::TABLE . '(' . implode(',', $columns) . ')
+            VALUES(' . implode(',', array_keys($values)) . ')';
+        $db = Db::instance();
+        $res = $db->execute($sql, $values);
+        if ($res === false) {
+            return false;
+        }
+        $this->id = static::findId();
+        return $this->id;
+    }
 
     public  function update($id, $values = [])
     {
@@ -148,6 +190,25 @@ abstract class Model
                 return $id;
             }else {return false;}
 
+    }
+
+    /**
+     * update method
+     * @return bool
+     */
+    public function update2()
+    {
+        $columns = [];
+        $values = [];
+        foreach ($this as $key => $val) {
+            if ($key !== 'id') {
+                $columns[] = $key . '=:' . $key;
+            }
+            $values[':' . $key] = $val;
+        }
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(',', $columns) . ' WHERE id=:id';
+        $db = Db::instance();
+        return $db->execute($sql, $values);
     }
 
 
