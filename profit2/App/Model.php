@@ -35,7 +35,7 @@ abstract class Model
     {
         $db = Db::instance();
         return $db->query(
-            'SELECT * FROM ' . static::TABLE .' LIMIT '.$num,
+            'SELECT * FROM ' . static::TABLE .' ORDER BY id DESC LIMIT '.$num,
             static::class
         );
     }

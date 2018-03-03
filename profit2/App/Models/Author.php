@@ -15,8 +15,11 @@ use App\Model;
  * author model
  * @package App\Models
  */
-class Author extends Model
+class Author extends Model //implements \ArrayAccess
 {
+
+   // use \App\ArrayObjAccess;
+
     const TABLE = 'authors';
     /**
      * @var string $name
@@ -26,4 +29,5 @@ class Author extends Model
      * @var string $surname
      */
     public $surname;
+
 }
