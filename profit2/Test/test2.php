@@ -5,13 +5,23 @@ require __DIR__. '/../autoload.php';
 
 //$config = App\Config::instance();
 
-$author = new \App\Models\Author();
-$author->name = 'Ваня';
-$author->surname = 'Петро';
+//$config = App\Config::instance();
+//$author->name = 'Ваня';
+//$author->surname = 'Петро';
+
+$test = new \App\ExempleIntrator();
+$test->set('foo', 'bar');
+$test->set('baz', 42);
 
 
 
-var_dump($author);
+foreach ($test as $key => $val) {
+    echo $key . '=>' . $val;
+    echo "\n";
+}
+
+
+//var_dump($config);
 
 
 //$view = new \App\View();
