@@ -45,25 +45,29 @@ elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name'
     $news = new \App\Models\News();
     $author = new \App\Models\Author();
 
+    $author->name = $_POST['name'];
+    $author->surname = $_POST['surname'];
+    $news->title = $_POST['title'];
+    $news->text = $_POST['text'];
+
 
     if (!$_POST['id'])
     {
-        $author->name = $_POST['name'];
-        $author->surname = $_POST['surname'];
-        $author_id = (\App\Models\Author::findAuthor($author))?: $author->insert(['name' => $_POST['name'], 'surname' => $_POST['surname']]);
-        $id = $news->insert(['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
-        $news->insert(['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
+        $author_id = (\App\Models\Author::findAuthor($author))?: $author->insert2();
+        $news->author_id = $author_id;
+        $news->id = $news->save();
 
     }elseif ($_POST['id']){
-        $id = $_POST['id'];
-        $news = (\App\Models\News::findById($_POST['id']));
-        $author_id = $news->author_id;
-        $news->update($_POST['id'], ['title' => $_POST['title'], 'text' => $_POST['text'], 'author_id' => $author_id]);
-        $author->update($author_id, ['name' => $_POST['name'], 'surname' => $_POST['surname']]);
+
+        $news->id = $_POST['id'];
+        $news->author_id = \App\Models\News::findById($_POST['id'])->author_id;
+        $author->id = $news->author_id;
+        $news->save();
+        $author->save();
 
     }
 
-    $view->news = \App\Models\News::findById($id);
+    $view->news = \App\Models\News::findById($news->id);
     $view->display(__DIR__ . '/template/edit.php');
 
 
