@@ -4,7 +4,12 @@ namespace App\Models;
 
 
 use App\Model;
-
+/**
+*   Class News
+* @package App\Models
+*
+* @property \App\Models\Author $author
+ */
 class News extends Model
 
 {

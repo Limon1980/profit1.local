@@ -1,21 +1,58 @@
 <?php
 
+//$url = $_SERVER['REQUEST_URI'];
+//
+//echo $url;
+//
+//die;
+
+
+
+
 require __DIR__. '/autoload.php';
 
 //$users = \App\Models\User::findAll();
 //
 //include __DIR__.'/template/index.php';
 
-$view = new \App\View();
-$view->title = 'Новости';
-$view->news = \App\Models\News::findNum('5');
-$view->display(__DIR__ . '/template/index.php');
-
-
-
+//$view = new \App\View();
+//$view->title = 'Новости';
+//$view->news = \App\Models\News::findNum('5');
+//$view->display(__DIR__ . '/template/index.php');
+//$urlparse = parse_url($_SERVER['REQUEST_URI'],  PHP_URL_PATH);
 //$url = $_SERVER['REQUEST_URI'];
+//$l = mb_strrpos($url, '/')+1;
+//$l2 = mb_strrpos($url, '.php');
+//$action = mb_substr($url, $l, $l2-$l);
 
-//echo $url;
+//$action = str_replace('.php', '', mb_substr($url, $l+1));
+
+//$ctrl = mb_strrpos($url, $action);
+//
+//var_dump( $action);
+//var_dump($_GET);
+//var_dump($ctrl);
+//var_dump($urlparse);
+
+$action = (isset($_GET['act']))?ucfirst($_GET['act']) : false;
+$ctrl = (isset($_GET['ctrl']))?ucfirst($_GET['ctrl']) : false;
+
+$class = $ctrl ? '\\App\\Controllers\\'.$ctrl : '\\App\\Controllers\\News';
+$action = $action ?: 'Index';
+
+var_dump($class);
+var_dump($ctrl);
+var_dump($action);
+
+
+
+if (class_exists($class) !== false) {
+    $controller = new $class();
+    $controller->action($action);
+
+}
+
+
 
 
 //

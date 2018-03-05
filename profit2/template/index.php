@@ -10,7 +10,7 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
-<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
+<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="../profit2/index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
 
 <h1>Новости</h1>
 
@@ -20,7 +20,7 @@
         <div class="panel-heading">
 
                 <article>
-                    <a href="article.php?id=<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
+                    <a href="news/article/<?php echo $key->id;?>"><h3><?php echo $key->title; ?></h3></a>
                 </article>
         </div>
         <div class="panel-body"><?php echo $key->author->name; echo ' '. $key->author->surname ?></div>
