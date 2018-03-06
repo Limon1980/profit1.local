@@ -10,20 +10,22 @@
     <title><?php echo $news->title; ?></title>
 </head>
 <body>
-<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
+<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="/profit2/index.php"> Главная </a></div></div>
 
 <h1>Новости</h1>
 
 
-<?php if(isset($_GET['new'])){
+<?php
+var_dump($_GET);
+if($_GET['act'] == 'new'){
     $button = 'Добавить';
     $input1 = '<input class="button" type="submit" name="delete" value="Удалить">';
-}else {$button = 'Изменить'; $input1 = '';}?>
+}else {$button = 'Изменить'; $input1 = '<input class="button" type="submit" name="delete" value="Удалить">';}?>
 
-<form action="edit.php" method="post">
+<form action="/profit2/edit/new" method="post">
     <input type="text" name="id" placeholder="ID" value="<?= $news->id; ?>"   hidden><br>
     <input type="text" name="title" placeholder="Заголовок" value="<?= $news->title; ?>"   ><br>
-    <textarea class="Add" name="text" placeholder="Текст" ><?= $news->text; ?></textarea><br>
+    <textarea class="Add" name="text" placeholder="Текст" rows="10" cols="100" ><?= $news->text; ?></textarea><br>
     <input type="text" name="name" placeholder="Имя" value="<?= $news->author->name; ?>"   ><br>
     <input type="text" name="surname" placeholder="Фамилия" value="<?= $news->author->surname; ?>"   ><br>
     <br><input class="button" type="submit" name="enter" value="<?= $button?>"> <input class="button" type="reset" name="reset" value="Очистить">

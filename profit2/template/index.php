@@ -10,7 +10,7 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
-<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="../profit2/index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
+<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="../profit2/index.php"> Главная </a><a href="../profit2/edit/new"> Новая статья </a></div></div>
 
 <h1>Новости</h1>
 

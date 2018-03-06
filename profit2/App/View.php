@@ -75,6 +75,12 @@ class View
         echo $this->render($template);
     }
 
+    public static function redirect($location)
+    {
+        header('Location: ' . $location);
+        exit;
+    }
+
     public function count()
     {
         return count($this->data);

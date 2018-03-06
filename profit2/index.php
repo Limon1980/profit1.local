@@ -40,9 +40,9 @@ $ctrl = (isset($_GET['ctrl']))?ucfirst($_GET['ctrl']) : false;
 $class = $ctrl ? '\\App\\Controllers\\'.$ctrl : '\\App\\Controllers\\News';
 $action = $action ?: 'Index';
 
-var_dump($class);
-var_dump($ctrl);
-var_dump($action);
+//var_dump($class);
+//var_dump($ctrl);
+//var_dump($action);
 
 
 

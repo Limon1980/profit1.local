@@ -10,7 +10,7 @@
     <title><?php echo $news->title; ?></title>
 </head>
 <body>
-<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="/profit2/index.php"> Главная </a><a href="edit.php?new=new"> Новая статья </a></div></div>
+<div class="navbar navbar-default"> <div class="collapse navbar-collapse" id="navbar-main"><a href="/profit2/index.php"> Главная </a><a href="/profit2/edit/new"> Новая статья </a></div></div>
 
 <h1>Новости</h1>
 
@@ -25,8 +25,8 @@
         <div class="panel-body"><p><?= $news->text; ?></p><li><?php echo $news->author->name; echo ' '. $news->author->surname?></li></div>
     </div>
 
-    <a href="edit.php?edit=<?= $news->id;?>">Редактировать</a>
-    <a href="edit.php?delete=<?= $news->id;?>">Удалить</a>
+    <a href="/profit2/edit/article/<?= $news->id;?>">Редактировать</a>
+    <a href="/profit2/edit/delete/<?= $news->id;?>">Удалить</a>
 
 
 

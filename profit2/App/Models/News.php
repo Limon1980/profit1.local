@@ -86,5 +86,12 @@ class News extends Model
         }
     }
 
+    public function fill($data)
+    {
+        $this->title = $data['title'] ?? $this->title;
+        $this->text = $data['text'] ?? $this->text;
+        $this->name = $data['author_id'] ?? $this->author_id;
+        return $this;
+    }
 
 }
