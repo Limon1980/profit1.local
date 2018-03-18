@@ -4,6 +4,8 @@ namespace App\Models;
 
 
 use App\Model;
+use App\MultiException;
+
 /**
 *   Class News
 * @package App\Models
@@ -20,6 +22,9 @@ class News extends Model
     public $author_id;
     public $title;
     public $text;
+
+
+
 
 
     public function __get($k)
@@ -86,12 +91,21 @@ class News extends Model
         }
     }
 
-    public function fill($data)
+    public function fill($data = [])
     {
-        $this->title = $data['title'] ?? $this->title;
-        $this->text = $data['text'] ?? $this->text;
-        $this->name = $data['author_id'] ?? $this->author_id;
-        return $this;
+        $e = new MultiException();
+        if (true) {
+            $e[] = new \Exception('Заголовок не верный');
+        }
+        if (true) {
+            $e[] = new \Exception('Текст не верный');
+        }
+
+        throw $e;
+//        $this->title = $data['title'] ?? $this->title;
+//        $this->text = $data['text'] ?? $this->text;
+//        $this->name = $data['author_id'] ?? $this->author_id;
+//        return $this;
     }
 
 }

@@ -8,6 +8,8 @@
 
 namespace App\Controllers;
 
+use App\Config;
+use App\Exceptions\Core;
 use App\View;
 
 class ViewController
@@ -28,5 +30,7 @@ class ViewController
 
     protected function beforeAction()
     {
+    $ex = new Core('Сообщение об исключении');
+//    throw $ex;
     }
 }

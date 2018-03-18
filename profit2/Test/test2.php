@@ -1,24 +1,28 @@
 <?php
+require __DIR__. '/../app/collection.php';
+//
+//$ex = new Exception();
+//var_dump($ex)
 
-
-require __DIR__. '/../autoload.php';
-
+$a = new \App\Collection();
+$a[] = 1;
+$a[1] = 11;
 //$config = App\Config::instance();
 
 //$config = App\Config::instance();
 //$author->name = 'Ваня';
 //$author->surname = 'Петро';
 
-$test = new \App\ExempleIntrator();
-$test->set('foo', 'bar');
-$test->set('baz', 42);
-
-
-
-foreach ($test as $key => $val) {
-    echo $key . '=>' . $val;
-    echo "\n";
-}
+//$test = new \App\ExempleIntrator();
+//$test->set('foo', 'bar');
+//$test->set('baz', 42);
+//
+//
+//
+//foreach ($test as $key => $val) {
+//    echo $key . '=>' . $val;
+//    echo "\n";
+//}
 
 
 //var_dump($config);
@@ -37,8 +41,8 @@ foreach ($test as $key => $val) {
 //$id = $author->save();
 //var_dump($news['title']);
 
-die;
-$view->display(__DIR__ . '/template/index.php');
+//die;
+//$view->display(__DIR__ . '/template/index.php');
 
 
 //var_dump($author);

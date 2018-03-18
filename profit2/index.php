@@ -48,8 +48,12 @@ $action = $action ?: 'Index';
 
 if (class_exists($class) !== false) {
     $controller = new $class();
-    $controller->action($action);
-
+    try {
+        $controller->action($action);
+    } catch (\App\Exceptions\Core $e){
+    echo 'Возникло исключение приложения ' . $e->getMessage();
+    } catch (\App\Exceptions\Db $e){
+    echo 'Что то не так с базой ';}
 }
 
 
