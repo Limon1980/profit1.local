@@ -107,7 +107,7 @@ abstract class Model
         $columns = [];
         $val = [];
         foreach ($this as $k => $v){
-            if ('id' == $k){
+            if ('id' == $k || 'time' === $k){
                 continue;
             }
             $columns[] = $k;
@@ -143,7 +143,7 @@ abstract class Model
         $columns = [];
         $values = [];
         foreach ($this as $key => $val) {
-            if ($key === 'id') {
+            if ($key === 'id' || $key === 'time') {
                 continue;
             }
             $columns[] = $key;
