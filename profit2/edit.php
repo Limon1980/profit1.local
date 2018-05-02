@@ -1,5 +1,5 @@
 <?php
-require __DIR__. '/autoload.php';
+require __DIR__ . '/autoload.php';
 
 
 //$view = new \App\View();
@@ -16,7 +16,6 @@ if (isset($_GET['new'])) {
     $view->news->author = $author;
 
     $view->display(__DIR__ . '/template/edit.php');
-
 
 
 //    $view = new \App\View();
@@ -38,9 +37,7 @@ if (isset($_GET['new'])) {
     $view->news = \App\Models\News::findNum(3);
     $view->display(__DIR__ . '/template/index.php');
 
-}
-
-elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name']) and isset($_POST['surname'])){
+} elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name']) and isset($_POST['surname'])) {
     $view = new \App\View();
     $news = new \App\Models\News();
     $author = new \App\Models\Author();
@@ -51,13 +48,12 @@ elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name'
     $news->text = $_POST['text'];
 
 
-    if (!$_POST['id'])
-    {
-        $author_id = (\App\Models\Author::findAuthor($author))?: $author->insert2();
+    if (!$_POST['id']) {
+        $author_id = (\App\Models\Author::findAuthor($author)) ?: $author->insert2();
         $news->author_id = $author_id;
         $news->id = $news->save();
 
-    }elseif ($_POST['id']){
+    } elseif ($_POST['id']) {
 
         $news->id = $_POST['id'];
         $news->author_id = \App\Models\News::findById($_POST['id'])->author_id;
@@ -69,7 +65,6 @@ elseif (isset($_POST['title']) and isset($_POST['text']) and isset($_POST['name'
 
     $view->news = \App\Models\News::findById($news->id);
     $view->display(__DIR__ . '/template/edit.php');
-
 
 
 }

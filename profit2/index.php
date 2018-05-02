@@ -7,9 +7,7 @@
 //die;
 
 
-
-
-require __DIR__. '/autoload.php';
+require __DIR__ . '/autoload.php';
 
 //$users = \App\Models\User::findAll();
 //
@@ -34,10 +32,10 @@ require __DIR__. '/autoload.php';
 //var_dump($ctrl);
 //var_dump($urlparse);
 
-$action = (isset($_GET['act']))?ucfirst($_GET['act']) : false;
-$ctrl = (isset($_GET['ctrl']))?ucfirst($_GET['ctrl']) : false;
+$action = (isset($_GET['act'])) ? ucfirst($_GET['act']) : false;
+$ctrl = (isset($_GET['ctrl'])) ? ucfirst($_GET['ctrl']) : false;
 
-$class = $ctrl ? '\\App\\Controllers\\'.$ctrl : '\\App\\Controllers\\News';
+$class = $ctrl ? '\\App\\Controllers\\' . $ctrl : '\\App\\Controllers\\News';
 $action = $action ?: 'Index';
 
 //var_dump($class);
@@ -45,15 +43,15 @@ $action = $action ?: 'Index';
 //var_dump($action);
 
 
-
 if (class_exists($class) !== false) {
     $controller = new $class();
     try {
         $controller->action($action);
-    } catch (\App\Exceptions\Core $e){
-    echo 'Возникло исключение приложения ' . $e->getMessage();
-    } catch (\App\Exceptions\Db $e){
-    echo 'Что то не так с базой ';}
+    } catch (\App\Exceptions\Core $e) {
+        echo 'Возникло исключение приложения ' . $e->getMessage();
+    } catch (\App\Exceptions\Db $e) {
+        echo 'Что то не так с базой ';
+    }
 }
 
 
