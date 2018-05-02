@@ -29,7 +29,7 @@
     <a href="/profit2/edit/delete/<?= $news->id;?>">Удалить</a>
 
 
-
+    <?php echo '<br>'. $news->time; ?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

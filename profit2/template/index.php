@@ -24,9 +24,12 @@
                 </article>
         </div>
         <div class="panel-body"><?php echo $key->author->name; echo ' '. $key->author->surname ?></div>
+
     </div>
 
+
 <?php endforeach; ?>
+<?php echo '<br>'. $time; ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

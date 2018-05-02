@@ -12,6 +12,11 @@ use App\Config;
 use App\Exceptions\Core;
 use App\View;
 
+
+
+
+
+
 class ViewController
 {
     protected $view;
@@ -30,7 +35,10 @@ class ViewController
 
     protected function beforeAction()
     {
+
+
     $ex = new Core('Сообщение об исключении');
 //    throw $ex;
     }
 }
+

@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 use App\MultiException;
 use App\View;
+use SebastianBergmann\Timer\Timer;
+
+
+
+Timer::start();
+
 
 class News extends ViewController
 {
@@ -12,14 +18,34 @@ class News extends ViewController
     {
         $this->view->title = 'Мой крутой сайт!';
         $this->view->news = \App\Models\News::findNum(5);
+        $this->view->time = Timer::resourceUsage();
         $this->view->display(__DIR__ . '/../../template/index.php');
+
+
+
+//        $time = Timer::stop();
+//
+//        var_dump($time);
+//
+//        print Timer::secondsToTimeString($time);
+//        print Timer::resourceUsage();
     }
 
     protected function actionArticle()
     {
         $id = (int)$_GET['id'];
         $this->view->news = \App\Models\News::findById($id);
+        $this->view->news->time = Timer::resourceUsage();
         $this->view->display(__DIR__ . '/../../template/article.php');
+
+        $time = Timer::stop();
+
+        //var_dump($time);
+
+        //print Timer::secondsToTimeString($time);
+       // print Timer::resourceUsage();
+
+
     }
 
     protected function actionCreate()
@@ -36,3 +62,4 @@ class News extends ViewController
     }
 
 }
+

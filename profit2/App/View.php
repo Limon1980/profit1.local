@@ -55,6 +55,8 @@ class View
      
     use \App\TraitMagic;
 
+
+
     public function render($template)
     {
         ob_start();
@@ -87,3 +89,4 @@ class View
     }
 
 }
+

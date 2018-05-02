@@ -22,6 +22,8 @@ class News extends Model
     public $author_id;
     public $title;
     public $text;
+    public $time;
+
 
 
 
@@ -59,6 +61,8 @@ class News extends Model
     {
         return $this->title;
     }
+
+
     /**
      * @return string
      */
